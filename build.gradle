@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '5.3.0'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'ru.netology'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 11
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+allure {
+    version = '2.20.1'
+    useJUnit5 {
+        version = '2.20.1'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.6.1'
+    implementation group: 'com.codeborne', name: 'selenide', version: '6.14.1'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.10'
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
+
+    testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
+    implementation group: 'commons-dbutils', name: 'commons-dbutils', version: '1.7'
+
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.29'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.4.0'
+
+    testImplementation 'io.rest-assured:rest-assured:4.3.0'
+    testImplementation 'io.rest-assured:json-schema-validator:4.3.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
+
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+
+       // SELECT mySQL:
+    //systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://217.25.88.206:3306/app')
+       // SELECT postgresSQL:
+    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://217.25.88.206:5432/app')
+
+    systemProperty 'db.user', System.getProperty('db.user', 'app')
+    systemProperty 'db.password', System.getProperty('db.password', 'pass')
+    systemProperty 'sut.url', System.getProperty('sut.url', "http://localhost:8080/")
+
+
+    //useTestNG()
+    //systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    //systemProperty 'dbUrl', System.getProperty('dbUrl')
+}
