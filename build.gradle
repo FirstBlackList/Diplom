@@ -56,9 +56,4 @@ test {
     systemProperty 'db.user', System.getProperty('db.user', 'app')
     systemProperty 'db.password', System.getProperty('db.password', 'pass')
     systemProperty 'sut.url', System.getProperty('sut.url', "http://localhost:8080/")
-
-
-    //useTestNG()
-    //systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    //systemProperty 'dbUrl', System.getProperty('dbUrl')
 }
