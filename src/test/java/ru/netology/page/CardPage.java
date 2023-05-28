@@ -43,6 +43,10 @@ public class CardPage {
         $(withText("Неверный формат")).shouldBe(visible);
     }
 
+    public void getInvalidFormatLong() {
+        $(withText("Значение поля не может содержать более 100 символов")).shouldBe(visible);
+    }
+
     public void getRequiredField() {
         $(withText("Поле обязательно для заполнения")).shouldBe(visible);
     }
@@ -54,7 +58,7 @@ public class CardPage {
     }
 
     public void getInvalidDataName() {
-        $(withText("Значение поля может содержать только буквы и дефис")).shouldBe(visible);
+        $(withText("Значение поля может содержать только русские или только латинские буквы и дефис")).shouldBe(visible);
     }
 
     public void getShortName() {

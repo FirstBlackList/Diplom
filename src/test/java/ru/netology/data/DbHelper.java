@@ -4,9 +4,11 @@ import lombok.*;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DbHelper {
@@ -53,6 +55,22 @@ public class DbHelper {
         setup();
         var query = "SELECT * FROM payment_entity ORDER BY created DESC;";
         return runner.query(conn, query, resultHandler);
+    }
+
+    public static String getPaymentStatus() {
+        String statusSQL = "SELECT status FROM payment_entity";
+        return getStatus(statusSQL);
+    }
+
+    public static String getCreditStatus() {
+        String statusSQL = "SELECT status FROM credit_request_entity";
+        return getStatus(statusSQL);
+    }
+
+    @SneakyThrows
+    private static String getStatus(String query) {
+        setup();
+        return runner.query(conn, query, new ScalarHandler<>());
     }
 
 }

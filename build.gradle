@@ -49,9 +49,9 @@ test {
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
 
        // SELECT mySQL:
-    //systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://217.25.88.206:3306/app')
+    //systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://localhost:3306/app')
        // SELECT postgresSQL:
-    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://217.25.88.206:5432/app')
+    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://localhost:5432/app')
 
     systemProperty 'db.user', System.getProperty('db.user', 'app')
     systemProperty 'db.password', System.getProperty('db.password', 'pass')

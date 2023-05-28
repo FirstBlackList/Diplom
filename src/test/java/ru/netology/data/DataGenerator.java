@@ -98,7 +98,7 @@ public class DataGenerator {
     }
 
     public static String getNameLong() {
-        return fakerEN.lorem().characters(200);
+        return fakerEN.lorem().characters(150);
     }
 
     public static String getNameSymbol() {
