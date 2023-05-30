@@ -1,3 +1,5 @@
+
+[![Build status](https://ci.appveyor.com/api/projects/status/1apkspc2sa4rnknl?svg=true)](https://ci.appveyor.com/project/FirstBlackList/diplom)
 # __Дипломный проект профессии «Тестировщик»__
 ## *__Автоматизация тестирования веб-сервиса приложения по организации путешествий__*
 
@@ -12,7 +14,6 @@
 >### Подключение SUT к PostgreSQL
 
 1. Запустить Docker Desktop 
-1. Открыть проект в IntelliJ IDEA
 1. В терминале в корне проекта запустить контейнеры:
 
 ### __`docker-compose up -d`__
@@ -41,7 +42,6 @@
 >### Подключение SUT к MySQL
 
 1. Запустить Docker Desktop
-1. Открыть проект в IntelliJ IDEA
 1. В терминале в корне проекта запустить контейнеры:
 
 ### __`docker-compose up -d`__
