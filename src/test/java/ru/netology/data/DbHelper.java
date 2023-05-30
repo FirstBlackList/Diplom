@@ -18,14 +18,11 @@ public class DbHelper {
 
     private static ResultSetHandler<List<TableFields>> resultHandler = new BeanListHandler<>(TableFields.class);
 
-    private static String url = System.getProperty("db.url");
-    private static String user = System.getProperty("db.user");
-    private static String password = System.getProperty("db.password");
 
     @SneakyThrows
     public static void setup() {
         runner = new QueryRunner();
-        conn = DriverManager.getConnection((url), user, password);
+        conn = DriverManager.getConnection(System.getProperty("dbUrl"), "app", "pass");
     }
 
     @SneakyThrows
