@@ -14,7 +14,6 @@
 >### Подключение SUT к PostgreSQL
 
 1. Запустить Docker Desktop 
-1. Открыть проект в IntelliJ IDEA
 1. В терминале в корне проекта запустить контейнеры:
 
 ### __`docker-compose up -d`__
@@ -43,7 +42,6 @@
 >### Подключение SUT к MySQL
 
 1. Запустить Docker Desktop
-1. Открыть проект в IntelliJ IDEA
 1. В терминале в корне проекта запустить контейнеры:
 
 ### __`docker-compose up -d`__
