@@ -1,68 +1,81 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/1apkspc2sa4rnknl?svg=true)](https://ci.appveyor.com/project/FirstBlackList/diplom)
-# __Дипломный проект профессии «Тестировщик»__
+
+----
+# __Дипломный проект профессии «Тестировщик ПО»__
+
 ## *__Автоматизация тестирования веб-сервиса приложения по организации путешествий__*
 
 ## Клонирование проекта, запуск SUT, авто-тестов и генерация репорта
+ 
+  - ## Склонировать проект из репозитория командой: 
+    - ### `git clone`
 
->### Склонировать проект из репозитория командой 
+  - ## Открыть склонированный проект в Intellij IDEA
 
-### `git clone`
+### Подключение SUT к PostgreSQL
 
->### Открыть склонированный проект в Intellij IDEA
+1. __Запустить Docker Desktop__
+1. __В терминале в корне проекта запустить контейнеры:__
 
->### Подключение SUT к PostgreSQL
+    - ### __`docker-compose up -d`__
+1. __Запустить приложение:__
 
-1. Запустить Docker Desktop 
-1. В терминале в корне проекта запустить контейнеры:
+    - ### __`java -jar .\artifacts\aqa-shop.jar --spring.datasource.url=jdbc:postgresql://localhost:5432/app`__
+1. __Открыть второй терминал__
+1. __Запустить тесты:__
 
-### __`docker-compose up -d`__
-1. Запустить приложение:
+    - ### __`.\gradlew clean test -DdbUrl=jdbc:postgresql://localhost:5432/app`__
+1. __Создать отчёт Allure и открыть в браузере__
 
-### __`java -jar .\artifacts\aqa-shop.jar --spring.datasource.url=jdbc:postgresql://localhost:5432/app`__
-1. Открыть второй терминал
-1. Запустить тесты:
-
-### __`.\gradlew clean test -DdbUrl=jdbc:postgresql://localhost:5432/app`__
-1. Создать отчёт Allure и открыть в браузере
-
-### __`.\gradlew allureServe`__
-1. Закрыть отчёт:
-
-   **CTRL + C -> y -> Enter**
-1. Перейти в первый терминал
-1. Остановить приложение:
-
-   **CTRL + C**
-1. Остановить контейнеры:
-
-### __`docker-compose down`__
-   </a>
-
->### Подключение SUT к MySQL
-
-1. Запустить Docker Desktop
-1. В терминале в корне проекта запустить контейнеры:
-
-### __`docker-compose up -d`__
-1. Запустить приложение:
-
-### __`java -jar .\artifacts\aqa-shop.jar --spring.datasource.url=jdbc:mysql://localhost:3306/app`__
-1. Открыть второй терминал
-1. Запустить тесты:
-
-### __`.\gradlew clean test -DdbUrl=jdbc:mysql://localhost:3306/app`__
-1. Создать отчёт Allure и открыть в браузере
-
-### __`.\gradlew allureServe`__
-1. Закрыть отчёт:
+    - ### __`.\gradlew allureServe`__
+1. __Закрыть отчёт:__
 
    **CTRL + C -> y -> Enter**
-1. Перейти в первый терминал
-1. Остановить приложение:
+1. __Перейти в первый терминал__
+1. __Остановить приложение:__
 
    **CTRL + C**
-1. Остановить контейнеры:
+1. __Остановить контейнеры:__
 
-### __`docker-compose down`__
+    - ### __`docker-compose down`__
    </a>
+
+### Подключение SUT к MySQL
+
+1. __Запустить Docker Desktop__
+1. __В терминале в корне проекта запустить контейнеры:__
+
+    - ### __`docker-compose up -d`__
+1. __Запустить приложение:__
+
+    - ### __`java -jar .\artifacts\aqa-shop.jar --spring.datasource.url=jdbc:mysql://localhost:3306/app`__
+1. __Открыть второй терминал__
+1. __Запустить тесты:__
+
+    - ### __`.\gradlew clean test -DdbUrl=jdbc:mysql://localhost:3306/app`__
+1. __Создать отчёт Allure и открыть в браузере__
+
+    - ### __`.\gradlew allureServe`__
+1. __Закрыть отчёт:__
+
+   **CTRL + C -> y -> Enter**
+1. __Перейти в первый терминал__
+1. __Остановить приложение:__
+
+   **CTRL + C**
+1. __Остановить контейнеры:__
+
+    - ### __`docker-compose down`__
+   </a>
+   
+----
+## **Документация по проекту**
+
+- ### [__План автоматизации__](documents/Plan.md)
+
+- ### [__Отчётные документы по итогам тестирования веб-сервиса__](documents/Report.md)
+
+- ### [__Отчёт по итогам автоматизации__](documents/Summary.md)
+   </a>
+----
